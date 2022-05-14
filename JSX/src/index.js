@@ -3,24 +3,26 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
 
-const Book = (props) => {
-  return React.createElement('div', {}, [
-      React.createElement('h2', {}, props.name),
-      React.createElement('p', {}, props.year),
-      React.createElement('p', {}, props.price)
-  ])
+const Book = ({name, year, price}) => {
+  return (
+    <div>
+      <h2>{name}</h2>
+      <p>{year}</p>
+      <p>{price}</p>
+    </div>
+  )
 }
 
 const App = () => {
-  return React.createElement('div', {}, [
-      React.createElement('h1', {id: 'title', className: 'paragraph'}, "Hello world"),
-      React.createElement(Book, {name: 'JS for beginners', year: 2019, price: 50+'$'}),
-      React.createElement(Book, {name: 'React for beginners', year: 2020, price: 60+'$'}),
-      React.createElement(Book, {name: 'Vue for beginners', year: 2021, price: 70+'$'}),
-  ])
+  return(
+    <div>
+      <Book name="JS for beginner" year="2020" price="50"/>
+      <Book name="React for beginner" year="2021" price="60"/>
+      <Book name="Vue for beginner" year="2022" price="70"/>
+    </div>
+  )
 }
 
-ReactDOM.render(React.createElement(App), document.getElementById("root"))
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
